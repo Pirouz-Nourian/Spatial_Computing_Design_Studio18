@@ -1,11 +1,11 @@
-# [BK-7083](https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=52471): Spatial Computing: Computational Design Studio: 2018-19
+# [BK-7083] Spatial Computing: Computational Design Studio: 2018-19
 
 ## Introduction
 
 Spatial Computing (BK-MI-197, 15 ECTS) is offered as a minor degree
 programme at TU Delft consisting of a computational design studio
-(BK7083, 9 ECTS) and a computational simulations course (BK7084 6 ECTS).
-The goal of this studio (BK7083) is to introduce a participatory
+([BK-7083], 9 ECTS) and a computational simulations course ([BK-7084] 6 ECTS).
+The goal of this studio [BK-7083] is to introduce a participatory
 generative approach to architectural design. In doing so, the course
 also introduces basic mathematical and computational skills, especially
 in geometry, topology and graph theory (spatial mathematics), which are
@@ -85,50 +85,30 @@ of requirements lists the spaces below:
     function.
 
 -  Housing:
-
     -   Student Housing 80 units
-
     -   Assisted Living 30 units
-
     -   Starter Housing 100 units
-
 -   Communal Spaces:
-
     -   Underground Parking (minimum of 0.5 parking lots per apartment)
-
     -   Vegetation (minimum 30% of the plot)
-
     -   Workshops/Fab-Labs/Co-working Space and Start-up Offices
-
     -   Library + Cinematheque + Café/Pub + \[pinball\] Arcade
-
     -   Co-cooking/Restaurant
-
     -   Community Centre
-
     -   Shop (grocery, tools and crafts)
-
     -   Gym
 
 ## Design Goals (quantitative & qualitative):
 
 -   Maximum Multi-scale Modularity (Qualitative)
-
 -   Excellent Ergonomics (Qualitative)
-
 -   Keeping at least the same amount of housing units as before
     (Quantitative)
-
 -   Not blocking direct light for neighbour buildings (Quantitative)
-
 -   Max solar gain potential (optional, Quantitative)
-
 -   Max greenery (Quantitative)
-
 -   Min noise (Quantitative)
-
 -   Social integration (Qualitative)
-
 -   Rational spectra of privacy and community (Qualitative)
 
 ## Activities & Deliverables
@@ -139,33 +119,23 @@ on the schedules):
 
 -   A1) **Planning**: Program of Requirements & Network (adjacency and
     connectivity requirements)
-
 -   A2) **Configuring**: Circulation Manifold
-
 -   A3) **Massing**: Coloured Voxel Clouds
-
 -   **Midterm** (you will work on these items from day one, and will
     present them informally in a pin-up fashion):
-
     {problem formulation, a plan, a configuration, a mass-void
     composition, a flowchart, a clay model, code snippets & procedural
     models (submitted to our GitLab repo), and a live demo of the
     computational models}
-
 -   A4) **Forming**: Spatial Modules (functional spaces designed on a
     grid) fitted into the voxel cloud, finalized form, all models
     cleaned and documented.
-
 -   **Final** (you will present as a group):
-
     -   A presentation about your design process (an update on midterm
         presentation)
-
     -   an animation of the \[interactive\] computational design
         process.
-
     -   an A2 poster including) and the followings:
-
         {architectural diagrams (space planning \[network\],
         configuration \[circulation manifold\], massing \[voxel
         cloud\]), functional modules, plans 1:200, sections 1:100, urban
@@ -181,42 +151,32 @@ the context of architectural design.
 ### Theory
 
 The subjects taught in this course are the essentials of:
-
 -   Spatial Mathematics: Linear Algebra, Geometry, Topology, and Graph
     Theory
-
 -   Computer Graphics (Boundary Representations and Raster
     Representations)
-
--   Programming in Python (BK7083) & C++ (BK7084)
-
+-   Programming in Python [BK-7083] & C++ [BK-7084]
 -   Space Planning (i.e. configurative design, determining the 'Space
     Syntax')
-
 -   Grammatical Design (e.g. L-Systems, Graph Grammars, Design Games)
-
 -   Evidence-Based Design (e.g. Pattern Language)
-
 -   Housing Design (goals, ergonomics, standards, design codes, best
     practices)
 
 ### Practice
 
 The practical skills learnt in this minor are the essentials of:
-
 -   Modern CAD (Parametric and Procedural Design)
-
 -   Simulation (light)
-
 -   Generative Design (using Cellular Automata, Agent-Based Modelling,
     Particle Systems, Combinatorial Design)
-
 -   Technical Communication (Problem Definition, Problem Formulation,
     Flowchart Drawing, Pseudocode Writing)
-
 -   Infographics
-
--   Programming (within Rhino & Grasshopper using Python \[BK7083\] and
-    coding C++ modules \[BK7084\])
+-   Programming (within Rhino & Grasshopper using Python [BK-7083] and
+    coding C++ modules [BK-7084])
 
 ---
+<!-- Links -->
+[BK-7083]:https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=52471
+[BK-7084]:https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=48906
