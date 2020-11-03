@@ -17,3 +17,9 @@ The structure of the programs for Houdini and Grasshopper is explained in the RE
 Thanks for visiting our page,
 
 Laurens van Rijssel
+
+## Process
+![](0.%20Poster%20en%20Presentatie%20slides/FinalGrower.gif)
+
+
+![](0.%20Poster%20en%20Presentatie%20slides/../0.%20Poster%20en%20Presentatie%20slides/Poster-compressed.jpg)
