@@ -24,38 +24,27 @@ building.
 
 ## People
 
-|                        |                                                                  |
-| ---------------------- | ---------------------------------------------------------------- |
-| Responsible Instructor | [Dr.ir. P. Nourian](mailto:p.nourian@tudelft.nl) (PZN)           |
-| Instructors            | [Ir. HansHoogenboom](mailto:J.J.J.G.Hoogenboom@tudelft.nl) (HHG) |
-| Instructors            | [Ir. Shervin Azadi](mailto:S.Azadi-1@tudelft.nl) (SAZ)           |
-| <img width=150/>       | <img width=250/>                                                 |
 
-| Project          | Students         |
-| ---------------- | ---------------- |
-| **Accretio**     | Maximilian Michl |
-| <img width=150/> | <img width=250/> |
-
-|                  |                        |
-| ---------------- | ---------------------- |
-| **Arthouse**     | Marieke van Esch,      |
-|                  | Pim Voermans,          |
-|                  | Valerie van den Broek, |
-|                  | Laurens van Rijssel    |
-| <img width=150/> | <img width=250/>       |
-
-|                  |                       |
-| ---------------- | --------------------- |
-| **Het Gebouw**   | Jasper van der Vaart, |
-|                  | Syed Baqir Ali Kazmi  |
-| <img width=150/> | <img width=250/>      |
-
-|                   |                           |
-| ----------------- | ------------------------- |
-| **Piece of Cake** | Fé van Lookeren Campagne, |
-|                   | Ruben Schonewille,        |
-|                   | Max Ketelaa               |
-| <img width=150/>  | <img width=250/>          |
+| **Project**                | **Students**                                               |
+| -------------------------- | ---------------------------------------------------------- |
+| **Accretio**               | Maximilian Michl                                           |
+|                            |                                                            |
+| **Arthouse**               | Marieke van Esch,                                          |
+|                            | Pim Voermans,                                              |
+|                            | Valerie van den Broek,                                     |
+|                            | Laurens van Rijssel                                        |
+|                            |                                                            |
+| **Het Gebouw**             | Jasper van der Vaart,                                      |
+|                            | Syed Baqir Ali Kazmi                                       |
+|                            |                                                            |
+| **Piece of Cake**          | Fé van Lookeren Campagne,                                  |
+|                            | Ruben Schonewille,                                         |
+|                            | Max Ketelaa                                                |
+|                            |                                                            |
+|                            | **Instructors**                                            |
+| **Responsible Instructor** | [Dr.ir. P. Nourian](mailto:p.nourian@tudelft.nl)           |
+| **Instructors**            | [Ir. HansHoogenboom](mailto:J.J.J.G.Hoogenboom@tudelft.nl) |
+| **Instructors**            | [Ir. Shervin Azadi](mailto:S.Azadi-1@tudelft.nl)           |
 
 ## Theme
 
@@ -224,3 +213,5 @@ The practical skills learnt in this minor are the essentials of:
 
 -   Programming (within Rhino & Grasshopper using Python \[BK7083\] and
     coding C++ modules \[BK7084\])
+
+---
