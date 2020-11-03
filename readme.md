@@ -27,17 +27,17 @@ building.
 
 | **Project**                | **Students**                                               |
 | -------------------------- | ---------------------------------------------------------- |
-| **Accretio**               | Maximilian Michl                                           |
+| **[Accretio]**             | Maximilian Michl                                           |
 |                            |                                                            |
-| **Arthouse**               | Marieke van Esch,                                          |
+| **[Arthouse]**             | Marieke van Esch,                                          |
 |                            | Pim Voermans,                                              |
 |                            | Valerie van den Broek,                                     |
 |                            | Laurens van Rijssel                                        |
 |                            |                                                            |
-| **Het Gebouw**             | Jasper van der Vaart,                                      |
+| **[Het Gebouw]**           | Jasper van der Vaart,                                      |
 |                            | Syed Baqir Ali Kazmi                                       |
 |                            |                                                            |
-| **Piece of Cake**          | Fé van Lookeren Campagne,                                  |
+| **[Piece of Cake]**        | Fé van Lookeren Campagne,                                  |
 |                            | Ruben Schonewille,                                         |
 |                            | Max Ketelaa                                                |
 |                            |                                                            |
@@ -45,6 +45,11 @@ building.
 | **Responsible Instructor** | [Dr.ir. P. Nourian](mailto:p.nourian@tudelft.nl)           |
 | **Instructors**            | [Ir. HansHoogenboom](mailto:J.J.J.G.Hoogenboom@tudelft.nl) |
 | **Instructors**            | [Ir. Shervin Azadi](mailto:S.Azadi-1@tudelft.nl)           |
+
+[Accretio]:https://github.com/shervinazadi/spatial_computing_18/tree/master/Accretio
+[Arthouse]:https://github.com/shervinazadi/spatial_computing_18/tree/master/Arthouse
+[Het Gebouw]:https://github.com/shervinazadi/spatial_computing_18/tree/master/Het_Gebouw
+[Piece of Cake]:https://github.com/shervinazadi/spatial_computing_18/tree/master/Piece_of_Cake
 
 ## Theme
 
