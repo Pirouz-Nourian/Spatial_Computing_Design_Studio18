@@ -1,0 +1,131 @@
+Configuring | Vertical Circulation (3 Wrangles)
+
+Part 1 | Stair Shafts
+1. //Set every point in a straight line above or below the function centres to Circulation  
+2. //Inputs: Point Cloud and stored Function Centres  
+3. //Outputs: Vertical circulation shafts connecting important functions to the ground floor  
+4.   
+5. //Living Unit  
+6. int liv [] = expandpointgroup(0, "Living_Centre");  
+7.   
+8. vector liv_v = pointattrib(0, "P", liv[0], 1);  
+9. if (rint(@P.x*100)/100 == rint(liv_v.x*100)/100 && rint(@P.z*100)/100 == rint(liv_v.z*100)/100){  
+10.     i@Circ = 1;  
+11.     i@func_id = 10;  
+12. }  
+13.   
+14. //Library  
+15. int lib [] = expandpointgroup(0, "Library_Centre");  
+16. vector lib_v = pointattrib(0, "P", lib[0], 1);  
+17. if (rint(@P.x*100)/100 == rint(lib_v.x*100)/100 && rint(@P.z*100)/100 == rint(lib_v.z*100)/100){  
+18.     i@Circ = 1;  
+19.     i@func_id = 10;  
+20. }  
+21.   
+22. //Restaurant  
+23. int rest [] = expandpointgroup(0, "Restaurant_Centre");  
+24. vector rest_v = pointattrib(0, "P", rest[0], 1);  
+25. if (rint(@P.x*100)/100 == rint(rest_v.x*100)/100 && rint(@P.z*100)/100 == rint(rest_v.z*100)/100){  
+26.     i@Circ = 1;  
+27.     i@func_id = 10;  
+28. }  
+
+
+Part 2 | Staircase Access
+1. //If there is one set Access to "True" and store the Access Point  
+2. //If not check if Function Centres are near and on the same Level  
+3. //If it finds a point close to it and that function does not have an Access Point yet  
+4. //set Access to "True" and store the point  
+5.   
+6. //Input: Point cloud, stored function centres and circulation shafts  
+7. //Output: If possible, access point to the existing circulation shafts for each function  
+8.   
+9. //Getting the function centres  
+10. vector liv = detailattrib(0,"Living_Centre",0,1);  
+11. vector cin = detailattrib(0,"Cinema_Centre",0,1);  
+12. vector rest = detailattrib(0,"Restaurant_Centre",0,1);  
+13. vector shop = detailattrib(0,"Shops_Centre",0,1);  
+14. vector exh = detailattrib(0,"Exhibition_Centre",0,1);  
+15. vector lib = detailattrib(0,"Library_Centre",0,1);  
+16. vector sta = detailattrib(0,"Studio_Arts_Centre",0,1);  
+17. vector cw = detailattrib(0,"Co_Working_Centre",0,1);  
+18. vector gym = detailattrib(0,"Gym_Centre",0,1);  
+19.   
+20. //Getting Id for function centres  
+21. int liv_id [] = expandpointgroup(0,"Living_Centre");  
+22. int cin_id [] = expandpointgroup(0,"Cinema_Centre");  
+23. int rest_id [] = expandpointgroup(0,"Restaurant_Centre");  
+24. int shop_id [] = expandpointgroup(0,"Shops_Centre");  
+25. int exh_id [] = expandpointgroup(0,"Exhibition_Centre");  
+26. int lib_id [] = expandpointgroup(0,"Library_Centre");  
+27. int sta_id [] = expandpointgroup(0,"Studio_Arts_Centre");  
+28. int cw_id [] = expandpointgroup(0,"Co_Working_Centre");  
+29. int gym_id [] = expandpointgroup(0,"Gym_Centre");  
+30.   
+31. //Storing Function Values in Arrays  
+32. vector centres [] = array(liv, cin, rest, shop, exh, lib, sta, cw, gym);  
+33. int centres_id [] = array(liv_id[0], cin_id[0], rest_id[0], shop_id[0], exh_id[0], lib_id[0], sta_id[0], cw_id[0], gym_id[0]);  
+34. string detail [] = {"Liv_Stair", "Cin_Stair", "Rest_Stair", "Shop_Stair", "Exh_Stair", "Lib_Stair", "Sta_Stair", "Cw_Stair", "Gym_Stair"};  
+35. string group [] = {"Liv_Acc", "Cin_Acc", "Rest_Acc", "Shop_Acc", "Exh_Acc", "Lib_Acc", "Sta_Acc", "Cw_Acc", "Gym_Acc"};  
+36. 
+37.   
+38. for(int i = 0; i < 9; i++){  
+39.       
+40.     //Checking for circulation access within own function  
+41.     if(@func_id == (i + 1) && rint(@P.y * 100)/100 == rint(centres[i].y *100)/100){  
+42.         setdetailattrib(0, detail[i], 1, "set");  
+43.         setpointgroup(0, group[i], @ptnum, 1, "set");  
+44.     }  
+45.       
+46.     //Checking for circulation access within close proximity of the function centre  
+47.     int stair = detailattrib(0,detail[i],0,1);  
+48.    
+
+
+49.     if (stair == 0){  
+50.         int pts[] = nearpoints(0, @P, 15); //Searching for Points around Stairs  
+51.         int test  = find(pts, centres_id[i]);  
+52.           
+53.         if(test > -1 && rint(@P.y * 100)/100 == rint(centres[i].y *100)/100){  
+54.             setdetailattrib(0, detail[i], 1, "set");  
+55.             setpointgroup(0, group[i], @ptnum, 1, "set");  
+56.         }  
+57.     }  
+58. } 
+
+
+Part 3 | Complementary Stairs
+1. //If the function does not have any access to vertical circulation  
+2. //Set every point in a straight line above and below the function centre as circulation  
+3. //Creating another Circulation Shaft  
+4.   
+5. //Input: Point cloud, stored function centres and stored circulation shafts access  
+6. //Output: Vertical circulation shafts for every function not having ground floor access yet  
+7.   
+8. //Getting the function centres  
+9. vector liv = detailattrib(0,"Living_Centre",0,1);  
+10. vector cin = detailattrib(0,"Cinema_Centre",0,1);  
+11. vector rest = detailattrib(0,"Restaurant_Centre",0,1);  
+12. vector shop = detailattrib(0,"Shops_Centre",0,1);  
+13. vector exh = detailattrib(0,"Exhibition_Centre",0,1);  
+14. vector lib = detailattrib(0,"Library_Centre",0,1);  
+15. vector sta = detailattrib(0,"Studio_Arts_Centre",0,1);  
+16. vector cw = detailattrib(0,"Co_Working_Centre",0,1);  
+17. vector gym = detailattrib(0,"Gym_Centre",0,1);  
+18.   
+19. //Storing Function Values in Arrays  
+20. vector centres [] = array(liv, cin, rest, shop, exh, lib, sta, cw, gym);  
+21. string detail [] = {"Liv_Stair", "Cin_Stair", "Rest_Stair", "Shop_Stair", "Exh_Stair", "Lib_Stair", "Sta_Stair", "Cw_Stair", "Gym_Stair"};  
+22.   
+23. //Assigning Circulation Attribute and Group to Points  
+24. for(int i = 0; i < 9; i++){  
+25.     int stair = detailattrib(0,detail[i],0,1);  
+26.   
+27.     if(stair == 0){  
+28.         if (rint(@P.x*100)/100 == rint(centres[i].x*100)/100 && rint(@P.z*100)/100 == rint(centres[i].z*100)/	100){  
+29.             i@Circ = 1;  
+30.             i@func_id = 10;  
+31.         }     
+32.     }  
+33. } 
+

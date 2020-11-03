@@ -1,0 +1,132 @@
+Massing | Living Unit Agent
+
+1. //The algorithm below is one of the agents used during the growth of the massing.  
+2. //It is based on a 2-way optimized weighted growth, with each function trying to get  
+3. //into an equilibrium between optimal conditions and relations between each other.  
+4.   
+5. //The input is a point cloud with various site specific attributes  
+6. //and defined unique starting points for each function.  
+7. //First, it looks at the current point's distance to the function centre and depending on it deletes it.  
+8. //Secondly while it still needs to grow, it looks at all the neighbouring points  
+9. //and stores the id of the best one.  
+10. //Otherwise, if it has reached its maximum it keeps checking its worst point against potential new ones 
+11. //and deletes chooses the better until it has reached the optimum  
+12. //Lastly, it assigns the found point to the given function  
+13.   
+14. //The output is a point cloud with the given function having its assigned points  
+15.   
+16. int group [] = expandpointgroup(0, "Living_Unit");  
+17. int runs = len(group);  
+18.   
+19. if (@Frame % 50 == 0){ //Let it search for new voxels every fifty frames  
+20.     setdetailattrib(0, "liv_growth", 0, "set");  
+21. }  
+22.   
+23. float growth = @liv_growth;  
+24. float v_dist = chf("../../../../../Voxels/Voxel_Size/v_height");  
+25. float v_side = chf("../../../../../Voxels/Voxel_Size/v_length");  
+26. // Living Unit  
+27. int liv_id = 500000000000000000000000;  
+28. float liv_perf = 0;  
+29. float temp_liv_perf = 0;  
+30.   
+31. //Agent Attributes  
+32. int liv_floors = chi("../../../../Living/floor");  
+33. int liv_area = chi("../../../../Living/area");  
+34. int req_vox = int(rint((liv_area/(pow(v_side,2))) * (3/v_dist)));  
+35. int vox_amo = npointsgroup(0,"Living_Unit");  
+36.   
+37. float liv_sun = chf("../../../../Living/sun_perc");  
+38. int liv_min_floor = chi("../../../../Living/min_floor");  
+39. int liv_max_floor = chi("../../../../Living/max_floor");  
+40. int liv_qt = chi("../../../../Living/r_noise");  
+41. float liv_con = chf("../../../../Living/con");  
+42.   
+43. if (growth == 0){  
+44.     for (int i = 0; i < runs; i++){  
+45.         //Calculate the function centre  
+46.         vector curr = point(0, "P", group[i]);  
+47.         int pgloc [] = expandpointgroup(0, "Living_Unit");  
+48.         int pgloc_len = len(pgloc);  
+49.         vector loc = {0,0,0};  
+50.         for(int k = 0; k < pgloc_len; k++){  
+51.             vector temp = pointattrib(0,"P",pgloc[k],1);   
+52.             loc = loc + temp;  
+53.         }  
+54.           
+55.         loc /= pgloc_len;  
+56.         setdetailattrib(0, "Living_Centre", loc, "set");  
+57.           
+58.         if(max(abs(curr.x - loc.x), abs(curr.z - loc.z)) > sqrt(liv_area/liv_floors) * 0.8 || abs(curr.y - loc.y) > 3 * 	liv_floors / 2){ //Check if is not too far from the function Centre  
+59.             setpointattrib(0,'func_id', group[i], 0 ,"set");  
+60.             setpointgroup(0, "Living_Unit", group[i], 0, "set");  
+61.         }  
+62.         else{  
+63.             // Getting Point Attributes  
+64.             int func_id = pointattrib(0, "func_id", group[i], 1);  
+65.             vector base = point(0, "P", group[i]);  
+66.             int liv [] = nearpoints(0, base , v_dist);  
+67.               
+68.             for( int j = 0; j<len(liv); j++){  
+69.                 int point_func_id = pointattrib(0, "func_id", liv[j], 1);  
+70.                 float sun_rate = pointattrib(0, "Sun_Rate", liv[j], 1);  
+71.                 int floor = pointattrib(0, "Floor", liv[j], 1);  
+72.                 float dB = pointattrib(0, "dB", liv[j], 1);  
+73.                 float dB_norm = pointattrib(0, "dB_norm", liv[j], 1);  
+74.                 float con = pointattrib(0, "Connectivity", liv[j], 1);  
+75.                 vector pt = pointattrib(0, "P", liv[j], 1);  
+76.                 int occup = pointattrib(0, "liv_occupied", liv[j], 1);  
+77.           
+78.                 //Living Unit Performance  
+79.                 if (floor >= liv_min_floor && floor <= liv_max_floor && point_func_id == 0 && con >= liv_con){ // 	        Checking if voxel is on the right floor, connectivity and is free  
+80.                     if (sun_rate >= liv_sun && rint(dB) <= liv_qt ){ // Checking for sun and noise  
+81.                         int ng [] = nearpoints(0, "Living_Unit", pt, v_dist);  
+82.                         temp_liv_perf = pointattrib(0, "living_perf", liv[j], 1);  
+83.                           
+84.                         if (temp_liv_perf > liv_perf && occup < 1 && vox_amo < req_vox){  
+85.                             liv_id = liv[j];  
+86.                             liv_perf = temp_liv_perf;  
+87.                         }  
+88.                     }  
+89.                 }  
+90.             }    
+91.         }  
+92.     }  
+93.       
+94.     if(vox_amo >= req_vox && growth == 0){ // If it is full but still wants to grow  
+95.         int gp_pt [] = expandpointgroup(0, "Living_Unit");  
+96.         int gp_run = len(gp_pt);  
+97.         float pt_dist [];  
+98.         vector centre = @Living_Centre;  
+99.           
+100.         for(int m = 0; m < gp_run; m++){  
+101.             vector ref = pointattrib(0, "P", gp_pt[m], 1);  
+102.             float tem = rint(distance(centre, ref)*100)/100;  
+103.               
+104.             pt_dist[m] = tem;  
+105.         }  
+106.           
+107.         float max = max(pt_dist);  
+108.         int ind = find(pt_dist,max);  
+109.           
+110.         float comp_liv_perf = pointattrib(0, "living_perf", gp_pt[ind], 1);  
+111.           
+112.         //Compare the performance of the furthest from its function centre and best it could grow to  
+113.         //Choose to better one, if there are no better ones stop growing  
+114.         if (comp_liv_perf < temp_liv_perf){  
+115.             setpointattrib(0,'func_id', gp_pt[ind], 0 ,"set");  
+116.             setpointgroup(0, "Living_Unit", gp_pt[ind], 0, "set");  
+117.         }  
+118.           
+119.         else{  
+120.             setdetailattrib(0, "liv_growth", 1, "set");  
+121.         }  
+122.     }  
+123.     // Assigning the functions  
+124.     if (liv_id != 500000000000000000000000){  
+125.         setpointattrib(0,'liv_occupied', liv_id, 1 ,"add");  
+126.         setpointattrib(0,'func_id', liv_id, 1 ,"set");  
+127.         setpointgroup(0, "Living_Unit", liv_id, 1, "set");  
+128.     }  
+129. }  
+

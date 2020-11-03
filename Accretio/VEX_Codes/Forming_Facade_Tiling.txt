@@ -1,0 +1,86 @@
+Forming | Façade Tiling
+
+1. //For each face set an origin for its cutting plan at either 1/4, 1/2 or 3/4 of its edges  
+2. //Check for both edges, their length and set cutting plane orientation 
+3. //accordingly (random, horizontal, vertical or no cut)  
+4. //Use interpolation of coordinates (UV) to calculate the normal vectors for the cutting planes  
+5.   
+6. //Input: Individual Mesh Faces of the Facade  
+7. //Output: Faces with stored cut location and normals for cutting plane   
+8.   
+9. vector min_bb, max_bb, pos;  
+10. float riter, rx, ry, rz;  
+11. int x_or_z;  
+12.   
+13. getbbox(0,min_bb,max_bb); //Getting the extends of the face  
+14. v@min = min_bb;  
+15. v@max = max_bb;  
+16.   
+17. riter = detail(-1,'iteration');  
+18.   
+19. //Randomising the position of the cut  
+20. rx = onoise(@P+chi('seedx')+riter+@Frame);  
+21. ry = onoise(@P+chi('seedy')+riter+@Frame);  
+22. rz = onoise(@P+chi('seedz')+riter+@Frame);  
+23.   
+24. //Clipping the cut location to 1/4, 1/2 or 3/4 of the edge length  
+25. rx = ceil(rx*3)/4;  
+26. ry = ceil(ry*3)/4;  
+27. rz = ceil(rz*3)/4;  
+28.   
+29. //Mapping the relative position to the coordinate system  
+30. pos.x = fit(rx,-1,1,min_bb.x, max_bb.x);  
+31. pos.y = fit(ry,-1,1,min_bb.y, max_bb.y);  
+32. pos.z = fit(rx,-1,1,min_bb.z, max_bb.z);  
+33.   
+34. //Get Face Edge Lenghts  
+35.   
+36. vector pt_a = primuv( 0, "P", @primnum, {0, 0});  
+37. vector pt_b = primuv( 0, "P", @primnum, {1, 0});  
+38. vector pt_c = primuv( 0, "P", @primnum, {1, 1});  
+39.   
+40. vector a = pt_b - pt_a;  
+41. vector b = pt_c - pt_b;  
+42.   
+43. float side_a = length(a);  
+44. float side_b = length(b);  
+45.   
+46.   
+47. float w_x = chf("scale_x");  
+48. float w_z = chf("scale_z");  
+49.   
+50. //Set Cutting Plane Orientation according to edge lengths (to prevent too small faces)  
+51. if (side_a > w_x && side_b > w_z){  
+52.     x_or_z = floor(rand(@primnum+riter+chi('seed_x_or_z'))*2); //Random Orientation  
+53. }  
+54.   
+55.  if (side_a > w_x && side_b < w_z){  
+56.      x_or_z = 0; //Vertical Orientation  
+57.  }  
+58.    
+59. if (side_a < w_x && side_b > w_z){  
+60.     x_or_z = 1; //Horizontal Orientation  
+61. }  
+62.   
+63. if (side_a < w_x && side_b < w_z){  
+64.     x_or_z = 2; //No more cuts  
+65.     pos.y = 5000000;   
+66. }  
+67. //Storing Cut Location and Orientation  
+68. setdetailattrib(0,'clipcenter',pos);  
+69. setdetailattrib(0,'x_or_z',x_or_z);  
+70.   
+71. //Calculating the normal vectors for the cutting planes  
+72. vector mid_pt_a = primuv( 0, "P", @primnum, {0.5, 0});  
+73. vector mid_pt_b = primuv( 0, "P", @primnum, {1, 0.5});  
+74. vector mid_pt_c = primuv( 0, "P", @primnum, {0.5, 1});  
+75. vector mid_pt_d = primuv( 0, "P", @primnum, {0, 0.5});  
+76.   
+77. vector cut_a = mid_pt_c – mid_pt_a;  
+78. vector cut_b = mid_pt_d – mid_pt_b;  
+79. vector n = prim_normal(0, @primnum, {0.5,0.5});  
+80.   
+81. //Storing the normal vectors for later use  
+82. v@plane_a = rint(normalize(cross(cut_a,n))*100)/100;  
+83. v@plane_b = rint(normalize(cross(cut_b,n))*100)/100
+
