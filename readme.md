@@ -1,13 +1,5 @@
 # [BK-7083](https://studiegids.tudelft.nl/a101_displayCourse.do?course_id=52471): Spatial Computing: Computational Design Studio: 2018-19
 
-
-| Role                   | Name                                                             |
-| ---------------------- | ---------------------------------------------------------------- |
-| Minor Coordinator      | [Prof. Dr. Ir. Sevil Sariyildiz](mailto:s.sariyildiz@tudelft.nl) |
-| Responsible Instructor | [Dr.ir. P. Nourian](mailto:p.nourian@tudelft.nl) (PZN)           |
-| Instructors            | [Ir. HansHoogenboom](mailto:J.J.J.G.Hoogenboom@tudelft.nl) (HHG) |
-| Instructors            | [Ir. Shervin Azadi](mailto:S.Azadi-1@tudelft.nl) (SAZ)           |
-
 ## Introduction
 
 Spatial Computing (BK-MI-197, 15 ECTS) is offered as a minor degree
@@ -29,6 +21,41 @@ deliverable will be a demonstration of an operational workflow showing
 the transformation of a site, a program of requirements, key performance
 indicators, and the preferences of the prospective inhabitants into a
 building.
+
+## People
+
+|                        |                                                                  |
+| ---------------------- | ---------------------------------------------------------------- |
+| Responsible Instructor | [Dr.ir. P. Nourian](mailto:p.nourian@tudelft.nl) (PZN)           |
+| Instructors            | [Ir. HansHoogenboom](mailto:J.J.J.G.Hoogenboom@tudelft.nl) (HHG) |
+| Instructors            | [Ir. Shervin Azadi](mailto:S.Azadi-1@tudelft.nl) (SAZ)           |
+| <img width=150/>       | <img width=250/>                                                 |
+
+| Project          | Students         |
+| ---------------- | ---------------- |
+| **Accretio**     | Maximilian Michl |
+| <img width=150/> | <img width=250/> |
+
+|                  |                        |
+| ---------------- | ---------------------- |
+| **Arthouse**     | Marieke van Esch,      |
+|                  | Pim Voermans,          |
+|                  | Valerie van den Broek, |
+|                  | Laurens van Rijssel    |
+| <img width=150/> | <img width=250/>       |
+
+|                  |                       |
+| ---------------- | --------------------- |
+| **Het Gebouw**   | Jasper van der Vaart, |
+|                  | Syed Baqir Ali Kazmi  |
+| <img width=150/> | <img width=250/>      |
+
+|                   |                           |
+| ----------------- | ------------------------- |
+| **Piece of Cake** | Fé van Lookeren Campagne, |
+|                   | Ruben Schonewille,        |
+|                   | Max Ketelaa               |
+| <img width=150/>  | <img width=250/>          |
 
 ## Theme
 
