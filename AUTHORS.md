@@ -11,9 +11,6 @@
 * Pirouz Nourian
 * Shervin Azadi
 * Hans Hoogenboom
-* Frank Schnater
-* Dirk Rinze Visser
-* Fred Veer
 
 ## Student Projects
 
