@@ -192,7 +192,7 @@ The subjects taught in this course are the essentials of:
 
 - Spatial Mathematics: Linear Algebra, Geometry, Topology, and Graph Theory
 - Computer Graphics (Boundary Representations and Raster Representations)
-- Programming in Python [BK-7083] & C++ [BK-7084]
+- Programming in Python & C# [BK-7083] & C++ [BK-7084]
 - Space Planning (i.e. configurative design, determining the 'Space Syntax')
 - Grammatical Design (e.g. L-Systems, Graph Grammars, Design Games)
 - Evidence-Based Design (e.g. Pattern Language)
