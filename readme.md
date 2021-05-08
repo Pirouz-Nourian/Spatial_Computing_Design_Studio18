@@ -91,7 +91,7 @@ building.
             <td>
                 Fé van Lookeren Campagne <br>
                 Ruben Schonewille <br>
-                Max Ketelaa
+                Max Ketelaar
             </td>
         </tr>
     </tbody>
