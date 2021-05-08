@@ -1,5 +1,7 @@
 # [BK-7083] Spatial Computing: Computational Design Studio: 2018-19
 
+[![DOI](https://zenodo.org/badge/309639364.svg)](https://zenodo.org/badge/latestdoi/309639364)
+
 ## Introduction
 
 Spatial Computing (BK-MI-197, 15 ECTS) is offered as a minor degree
