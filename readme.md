@@ -45,10 +45,7 @@ building.
                 <a href="mailto:J.J.J.G.Hoogenboom@tudelft.nl">Ir. Hans Hoogenboom</a> (TU Delft, Design Informatics-HHG)<br>
             </td>
         </tr>
-        <tr>
-            <td>Responsible</td>
-            <td><a href="mailto:i.s.sariyildiz@tudelft.nl">Prof. Dr. Ir. Sevil Sariyildiz</a> (TU Delft, Design Informatics, SSZ)</td>
-        </tr>
+        
     </tbody>
     <thead>
         <tr class="header">
