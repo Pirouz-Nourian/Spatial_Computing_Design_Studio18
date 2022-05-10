@@ -44,7 +44,7 @@ building.
                 <a href="mailto:S.Azadi-1@tudelft.nl">Ir. Shervin Azadi</a> (TU Delft, Design Informatics, SAZ)<br>
                 <a href="mailto:J.J.J.G.Hoogenboom@tudelft.nl">Ir. Hans Hoogenboom</a> (TU Delft, Design Informatics-HHG)<br>
             </td>
-        </tr>
+         </tr>
         
     </tbody>
     <thead>
